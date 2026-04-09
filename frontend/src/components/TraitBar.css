@@ -1,0 +1,78 @@
+.trait-bar {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition);
+}
+
+.trait-bar:last-child {
+  border-bottom: none;
+}
+
+.trait-bar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  gap: 1rem;
+}
+
+.trait-bar__label-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.trait-bar__icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.trait-bar__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.trait-bar__desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+
+.trait-bar__score {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.trait-bar__score-max {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-left: 1px;
+}
+
+.trait-bar__track {
+  height: 6px;
+  background: var(--border);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.trait-bar__fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: none; /* Controlled via JS animation */
+}
+
+/* Intensity variants */
+.trait-bar--high .trait-bar__label {
+  color: var(--text-primary);
+}
+
+.trait-bar--low .trait-bar__label {
+  color: var(--text-secondary);
+}

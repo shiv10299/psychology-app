@@ -1,0 +1,204 @@
+.result {
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.result__bg-orb {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.8s ease;
+}
+
+.result__container {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+.result__hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding-top: 1rem;
+}
+
+.result__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 1rem;
+  border: 1px solid;
+  border-radius: 100px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.result__type-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  background: linear-gradient(135deg, var(--text-primary) 40%, var(--type-color, var(--accent)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.result__type-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 460px;
+  line-height: 1.65;
+}
+
+.result__scroll-btn {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* ── Divider ─────────────────────────────────────────────────────────── */
+.result__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Section headers ─────────────────────────────────────────────────── */
+.result__section-header {
+  margin-bottom: 1.25rem;
+}
+
+.result__section-header h3 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.result__section-header p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+/* ── Traits card ─────────────────────────────────────────────────────── */
+.result__traits-card {
+  padding: 1.5rem 2rem;
+}
+
+/* ── Insight card ────────────────────────────────────────────────────── */
+.result__insight-card {
+  padding: 2rem;
+}
+
+.result__insight-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.result__insight-icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.result__insight-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.result__insight-sublabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+
+.result__insight-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.result__insight-para {
+  font-size: 0.975rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+/* Fallback */
+.result__no-insight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  padding: 1.5rem;
+}
+
+/* ── Actions ─────────────────────────────────────────────────────────── */
+.result__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+.result__chat-btn {
+  padding: 0.9rem 1.75rem;
+  font-size: 0.925rem;
+}
+
+@media (max-width: 520px) {
+  .result {
+    padding: 2.5rem 1rem;
+  }
+
+  .result__container {
+    gap: 2.5rem;
+  }
+
+  .result__traits-card {
+    padding: 1.25rem;
+  }
+
+  .result__insight-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .result__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .result__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
