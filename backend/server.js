@@ -28,7 +28,7 @@ app.use(cors({
   origin: [
   process.env.FRONTEND_URL || 'http://localhost:3000',
   'http://localhost:3000',
-  'https://enchanting-pie-a8e447.netlify.app'
+  'https://psycheinsight.netlify.app'
 ],
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization'],
