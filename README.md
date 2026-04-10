@@ -21,8 +21,8 @@ An AI-powered personality assessment app that analyzes your psychological profil
 ## 🧱 Tech Stack
 
 **Frontend:** React 18, React Router v6, Axios, CSS Variables  
-**Backend:** Node.js, Express.js, Anthropic SDK  
-**AI:** Claude (claude-sonnet-4) via Anthropic API
+**Backend:** Node.js, Express.js, Google Generative AI SDK
+**AI:** Gemini (gemini-2.5-flash-lite) via Google AI Studio
 
 ---
 
