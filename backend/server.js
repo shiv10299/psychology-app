@@ -25,7 +25,11 @@ app.use(express.urlencoded({ extended: true }));
 
 // CORS - allow frontend
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: [
+  process.env.FRONTEND_URL || 'http://localhost:3000',
+  'http://localhost:3000',
+  'https://enchanting-pie-a8e447.netlify.app'
+],
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
