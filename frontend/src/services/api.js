@@ -7,7 +7,7 @@ import axios from 'axios';
 
 // Base Axios instance with default config
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: 'https://psychology-app-9fyz.onrender.com/api',
   timeout: 45000, // 45s — AI calls can take time
   headers: { 'Content-Type': 'application/json' },
 });
