@@ -52,6 +52,8 @@
   color: var(--accent);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  position: relative;
+  top: 7px;
 }
 
 .landing__badge-dot {
@@ -333,5 +335,106 @@
   }
   .landing__about-inner {
     padding: 2rem 1.25rem;
+  }
+}
+
+/* ── Hamburger Button ────────────────────────────────────────────────────── */
+.landing__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: 8px;
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.landing__hamburger:hover {
+  border-color: var(--accent-border);
+  background: var(--bg-hover);
+}
+
+.landing__hamburger span {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: var(--text-secondary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animated X when open */
+.landing__hamburger--open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+  background: var(--accent);
+}
+.landing__hamburger--open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.landing__hamburger--open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+  background: var(--accent);
+}
+
+/* ── Mobile Dropdown Menu ────────────────────────────────────────────────── */
+.landing__mobile-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 1rem;
+  width: 240px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+.landing__mobile-menu button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-align: left;
+}
+
+.landing__mobile-menu button:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.landing__mobile-menu button span {
+  color: var(--accent);
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* ── Show hamburger on mobile ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .landing__nav-links {
+    display: none !important;
+  }
+
+  .landing__hamburger {
+    display: flex;
   }
 }

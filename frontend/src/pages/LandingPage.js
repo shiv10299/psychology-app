@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
 
@@ -13,6 +13,7 @@ const TRAITS = [
 export default function LandingPage() {
   const navigate = useNavigate();
   const orbRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -25,13 +26,31 @@ export default function LandingPage() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (!e.target.closest('.landing__nav')) setMenuOpen(false);
+    };
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, []);
+
+  const handleNavClick = (action) => {
+    setMenuOpen(false);
+    action();
+  };
+
   return (
     <div className="landing">
       <div className="landing__orb" ref={orbRef} />
 
       {/* Nav */}
       <nav className="landing__nav fade-in">
-        <div className="landing__nav-logo">◈ PsycheInsight</div>
+        <div className="landing__nav-logo">
+          <a href='/'>◈ PsycheInsight</a>
+        </div>
+
+        {/* Desktop links */}
         <div className="landing__nav-links">
           <button className="btn btn-ghost landing__nav-btn" onClick={() => navigate('/docs')}>
             Explore Psychology
@@ -45,6 +64,37 @@ export default function LandingPage() {
             About
           </button>
         </div>
+
+        {/* Mobile hamburger button */}
+        <button
+          className={`landing__hamburger ${menuOpen ? 'landing__hamburger--open' : ''}`}
+          onClick={(e) => { e.stopPropagation(); setMenuOpen(!menuOpen); }}
+          aria-label="Toggle menu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        {/* Mobile dropdown menu */}
+        {menuOpen && (
+          <div className="landing__mobile-menu fade-in">
+            <button onClick={() => handleNavClick(() => navigate('/docs'))}>
+              <span>◈</span> Explore Psychology
+            </button>
+            <button onClick={() => handleNavClick(() => navigate('/personality-quiz'))}>
+              <span>◉</span> Know Your Type
+            </button>
+            <button onClick={() => handleNavClick(() => navigate('/quiz'))}>
+              <span>◎</span> Begin Assessment
+            </button>
+            <button onClick={() => handleNavClick(() => {
+              document.getElementById('about-section').scrollIntoView({ behavior: 'smooth' });
+            })}>
+              <span>◇</span> About
+            </button>
+          </div>
+        )}
       </nav>
 
       <main className="landing__main">
@@ -72,7 +122,6 @@ export default function LandingPage() {
           ))}
         </div>
 
-        {/* CTA Buttons */}
         <div className="landing__ctas fade-in" style={{ animationDelay: '0.6s' }}>
           <button className="btn btn-primary landing__cta" onClick={() => navigate('/quiz')}>
             Begin Assessment

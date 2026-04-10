@@ -30,7 +30,9 @@ export default function DocsPage() {
           </svg>
           Home
         </button>
-        <div className="docs__header-title">◈ Psychology Library</div>
+        <div className="docs__header-title">
+          <a href='\'>◈ Psychology Library</a>
+        </div>
         <button className="btn btn-primary docs__quiz-btn" onClick={() => navigate('/personality-quiz')}>
           Know Your Type →
         </button>
