@@ -38,11 +38,6 @@ export default function ResultPage() {
     insightRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  // eslint-disable-next-line no-unused-vars
-  const dominantTrait = scores
-    ? Object.entries(scores).sort((a, b) => b[1] - a[1])[0]?.[0]
-    : null;
-
   return (
     <div className="result">
       {/* Atmospheric background */}
