@@ -60,7 +60,7 @@ psychology-app/
     │   ├── insightController.js
     │   └── chatController.js
     ├── utils/
-    │   ├── aiService.js        ← Anthropic AI integration
+    │   ├── aiService.js        ← Google Generative AI
     │   └── scoringEngine.js    ← Psychological scoring logic
     ├── middleware/
     │   └── errorHandler.js
@@ -76,7 +76,7 @@ psychology-app/
 
 - Node.js v18+
 - npm v8+
-- An [Anthropic API key](https://console.anthropic.com/)
+- An [Gemini API key](https://console.Gemini.com/)
 
 ---
 
@@ -100,11 +100,11 @@ npm install
 cp .env.example .env
 ```
 
-Open `backend/.env` and add your Anthropic API key:
+Open `backend/.env` and add your Gemini API key:
 
 ```env
 PORT=5000
-ANTHROPIC_API_KEY=sk-ant-your-key-here
+GEMINI_API_KEY=sk-ant-your-key-here
 NODE_ENV=development
 FRONTEND_URL=http://localhost:3000
 ```
@@ -244,7 +244,7 @@ Clear a chat session's history.
 | Variable | Default | Description |
 |---|---|---|
 | `PORT` | `5000` | Backend server port |
-| `ANTHROPIC_API_KEY` | — | **Required.** Your Anthropic API key |
+| `GEMINI_API_KEY` | — | **Required.** Your Gemini API key |
 | `FRONTEND_URL` | `http://localhost:3000` | CORS allowed origin |
 | `NODE_ENV` | `development` | Enables verbose error messages |
 
@@ -263,7 +263,7 @@ Clear a chat session's history.
 
 ## 🛠 Troubleshooting
 
-**"AI Key: Missing"** — Check that `ANTHROPIC_API_KEY` is set in `backend/.env`
+**"AI Key: Missing"** — Check that `GEMINI_API_KEY` is set in `backend/.env`
 
 **CORS errors** — Ensure `FRONTEND_URL` in `.env` matches your React dev server URL
 
